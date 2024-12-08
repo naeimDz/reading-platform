@@ -1,20 +1,12 @@
 "use client"
-import React, { useState } from 'react';
-import { Book, Users, Target, Trophy, Bell, Settings, Home, ChevronRight, Calendar, Bookmark, Star } from 'lucide-react';
-import SidebarUser from '@/components/layouts/user/Sidebar';
-import Header from '@/components/layouts/user/Header';
+import { Book, Users, Target, Trophy, ChevronRight, Bookmark, Star } from 'lucide-react';
+
 
 const Dashboard = () => {
 
-  const [activeItem, setActiveItem] = useState<string>('home'); // Default active item
-
-  const handleSidebarItemClick = (item: string) => {
-    setActiveItem(item);
-  };
   return (
 <>
       
-
           {/* Reading Progress */}
           <div className="bg-white p-6 rounded-2xl shadow-sm mb-8">
             <div className="flex items-center justify-between mb-4">
@@ -117,10 +109,7 @@ const Dashboard = () => {
               </div>
             </div>
           </div>
-    
-
-
- 
+     
       </>
   );
 };

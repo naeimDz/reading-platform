@@ -1,4 +1,5 @@
 import { Home, Target, Trophy, Bell, Settings } from 'lucide-react';
+import Link from 'next/link';
 
 interface SidebarProps {
   activeItem: string;
@@ -7,10 +8,10 @@ interface SidebarProps {
 
 const SidebarUser = ({ activeItem, onItemClick }: SidebarProps) => {
   const sidebarItems = [
-    { id: 'home', icon: <Home size={24} />, label: 'Home' },
-    { id: 'target', icon: <Target size={24} />, label: 'Target' },
-    { id: 'trophy', icon: <Trophy size={24} />, label: 'Trophy' },
-    { id: 'bell', icon: <Bell size={24} />, label: 'Notifications' },
+    { id: 'home', icon: <Home size={24} />, label: 'Home' ,href:"/dashboard"},
+    { id: 'target', icon: <Target size={24} />, label: 'Target',href:'/dashboard/' },
+    { id: 'trophy', icon: <Trophy size={24} />, label: 'Trophy' ,href:'/dashboard/'},
+    { id: 'bell', icon: <Bell size={24} />, label: 'Notifications' ,href:'/dashboard/'},
 
   ];
 
@@ -20,7 +21,8 @@ const SidebarUser = ({ activeItem, onItemClick }: SidebarProps) => {
         <span className="text-white">N</span> {/* Book Icon */}
       </div>
       <nav className="flex flex-col gap-6">
-        {sidebarItems.map(({ id, icon, label }) => (
+        {sidebarItems.map(({ id, icon, label,href }) => (
+           <Link key={label} href={href} passHref>
           <button
             key={id}
             className={`p-3 rounded-xl ${activeItem === id ? 'bg-blue-50 text-blue-600' : 'text-gray-400 hover:bg-gray-50'}`}
@@ -28,12 +30,15 @@ const SidebarUser = ({ activeItem, onItemClick }: SidebarProps) => {
           >
             {icon}
           </button>
+          </Link>
         ))}
       </nav>
       <div className="mt-auto">
-        <button className="p-3 rounded-xl text-gray-400 hover:bg-gray-50">
+      <Link key="profile" href="/dashboard/profile" passHref>
+        <button className="p-3 rounded-xl text-gray-400 hover:bg-gray-50" key="profile"  onClick={() => onItemClick("profile")}>
           <Settings size={24} />
         </button>
+        </Link>
       </div>
     </div>
   );

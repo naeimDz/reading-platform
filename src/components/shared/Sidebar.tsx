@@ -1,7 +1,8 @@
 import React from "react";
 import Link from "next/link";
 import { Shield } from "lucide-react";
-import { MenuItem } from "../layouts/supervisor-dashboard/types";
+import { MenuItem } from "../types/dashboardTypes";
+
 
 
 

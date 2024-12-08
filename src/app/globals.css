@@ -1,7 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* Default (LTR) direction */
+html {
+  direction: ltr;
+  text-align: left;
+}
 
+/* RTL styles */
+html[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;

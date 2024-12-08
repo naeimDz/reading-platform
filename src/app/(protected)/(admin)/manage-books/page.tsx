@@ -58,38 +58,7 @@ const BookManagement = () => {
     status: '',
   });
 
-  const sidebarItems: SidebarItem[] = [
-    { 
-      icon: <LayoutDashboard className="w-5 h-5" />, 
-      label: 'Overview', 
-      view: 'overview' 
-    },
-    { 
-      icon: <Users className="w-5 h-5" />, 
-      label: 'User Management', 
-      view: 'users' 
-    },
-    { 
-      icon: <Book className="w-5 h-5" />, 
-      label: 'Book Management', 
-      view: 'books' 
-    },
-    { 
-      icon: <Group className="w-5 h-5" />, 
-      label: 'Group Insights', 
-      view: 'groups' 
-    },
-    { 
-      icon: <BarChart2 className="w-5 h-5" />, 
-      label: 'Performance', 
-      view: 'performance' 
-    },
-    { 
-      icon: <Settings className="w-5 h-5" />, 
-      label: 'Platform Settings', 
-      view: 'settings' 
-    }
-  ];
+
   // Mock logic to add or delete books
   const handleSelectBook = (id: number) => {
     setSelectedBooks(prevSelectedBooks =>
@@ -106,33 +75,12 @@ const BookManagement = () => {
   const [isAddBookModalOpen, setIsAddBookModalOpen] = useState(false);
 
   return (
-    <div className="flex flex-col lg:flex-row h-screen bg-gray-50">
-     {/* Sidebar */}
-     <div className="w-64 bg-white shadow-xl border-r border-gray-200 p-4">
-        <div className="flex items-center mb-8">
-          <Shield className="text-blue-600 mr-3" size={30} />
-          <h1 className="text-2xl font-bold text-blue-900">Admin Panel</h1>
-        </div>
-        
-        <nav>
-          {sidebarItems.map((item) => (
-            <button
-              key={item.view}
-              className={`
-                flex items-center w-full p-3 mb-2 rounded-lg transition-all
-    `}
-            >
-              {item.icon}
-              <span className="ml-3 font-medium">{item.label}</span>
-
-            </button>
-          ))}
-        </nav>
-      </div>
+<div>    
 
 
       {/* Main Content */}
-      <div className="flex-1 p-8 overflow-y-auto">
+
+      <div className="bg-gray-50 min-h-screen p-8">
         <div className="flex justify-between mb-6">
           <div>
             <h2 className="text-4xl font-semibold text-gray-800">Book Management</h2>
@@ -215,15 +163,6 @@ const BookManagement = () => {
         )}
       </div>
 
-      {/* Floating Action Button */}
-      <div className="fixed bottom-8 right-8">
-        <button 
-          className="p-4 bg-blue-600 rounded-full text-white shadow-lg hover:bg-blue-700 transition-all"
-          onClick={() => {/* Add book modal */}}
-        >
-          <Plus size={28} />
-        </button>
-      </div>
     </div>
   );
 };

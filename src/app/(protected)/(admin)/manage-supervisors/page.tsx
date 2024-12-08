@@ -113,37 +113,13 @@ const SupervisorManagement = () => {
   };
 
   return (
-    <div className="flex h-screen bg-gray-100">
-      {/* Sidebar */}
-      <div className="w-64 bg-white shadow-xl border-r border-gray-200 p-4">
-        <div className="flex items-center mb-8">
-          <Shield className="text-blue-600 mr-3" size={30} />
-          <h1 className="text-2xl font-bold text-blue-900">Admin Panel</h1>
-        </div>
-        
-        <nav>
-          {sidebarItems.map((item) => (
-            <button
-              key={item.view}
-              onClick={() => setActiveView(item.view)}
-              className={`flex items-center w-full p-3 mb-2 rounded-lg transition-all
-                ${activeView === item.view 
-                  ? 'bg-blue-100 text-blue-800' 
-                  : 'hover:bg-gray-100 text-gray-700'}`}
-            >
-              {item.icon}
-              <span className="ml-3 font-medium">{item.label}</span>
-              {activeView === item.view && <ChevronRight className="ml-auto" size={18} />}
-            </button>
-          ))}
-        </nav>
-      </div>
+    <div className="bg-gray-50 min-h-screen p-8">
 
       {/* Main Content Area */}
-      <div className="flex-1 p-8 overflow-y-auto">
-        <div className="bg-white rounded-2xl shadow-lg p-6">
+      <div className="flex justify-between mb-6">
+        <div >
           <div className="flex justify-between items-center mb-6">
-            <h2 className="text-3xl font-bold text-blue-900">Supervisor Management</h2>
+          <h2 className="text-4xl font-semibold text-gray-800">Supervisor Management</h2>
             
             <div className="flex space-x-4">
               {selectedUsers.length > 0 && (

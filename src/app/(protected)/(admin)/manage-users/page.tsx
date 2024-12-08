@@ -1,13 +1,6 @@
 "use client"
 import { useState } from 'react';
 import {
-  LayoutDashboard,
-  Users,
-  Book,
-  Group,
-  BarChart2,
-  Settings,
-  ChevronRight,
   Search,
   Filter,
   Edit,
@@ -15,10 +8,8 @@ import {
   Shield,
   Star,
   UserPlus,
-  MoreVertical
 } from 'lucide-react';
-import UserCard from '@/components/shared/UserCard';
-import UserStatusMessage from '@/components/shared/UserStatusMessage';
+
 
 interface User {
   id: number;
@@ -67,39 +58,7 @@ const UserManagementInterface = () => {
   const [selectedUsers, setSelectedUsers] = useState<number[]>([]);
   const [searchTerm, setSearchTerm] = useState<string>('');
 
-  const sidebarItems: SidebarItem[] = [
-    { 
-      icon: <LayoutDashboard className="w-5 h-5" />, 
-      label: 'Overview', 
-      view: 'overview' 
-    },
-    { 
-      icon: <Users className="w-5 h-5" />, 
-      label: 'User Management', 
-      view: 'users' 
-    },
-    { 
-      icon: <Book className="w-5 h-5" />, 
-      label: 'Book Management', 
-      view: 'books' 
-    },
-    { 
-      icon: <Group className="w-5 h-5" />, 
-      label: 'Group Insights', 
-      view: 'groups' 
-    },
-    { 
-      icon: <BarChart2 className="w-5 h-5" />, 
-      label: 'Performance', 
-      view: 'performance' 
-    },
-    { 
-      icon: <Settings className="w-5 h-5" />, 
-      label: 'Platform Settings', 
-      view: 'settings' 
-    }
-  ];
-
+  
   const filteredUsers = users.filter(user => 
     user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
     user.email.toLowerCase().includes(searchTerm.toLowerCase())
@@ -130,45 +89,15 @@ const UserManagementInterface = () => {
     }
   };
 
-    function handleStatusChange(id: number): void {
-        throw new Error('Function not implemented.');
-    }
 
   return (
-    <div className="flex h-screen bg-gray-100">
-      {/* Sidebar */}
-      <div className="w-64 bg-white shadow-xl border-r border-gray-200 p-4">
-        <div className="flex items-center mb-8">
-          <Shield className="text-blue-600 mr-3" size={30} />
-          <h1 className="text-2xl font-bold text-blue-900">Admin Panel</h1>
-        </div>
-        
-        <nav>
-          {sidebarItems.map((item) => (
-            <button
-              key={item.view}
-              onClick={() => setActiveView(item.view)}
-              className={`
-                flex items-center w-full p-3 mb-2 rounded-lg transition-all
-                ${activeView === item.view 
-                  ? 'bg-blue-100 text-blue-800' 
-                  : 'hover:bg-gray-100 text-gray-700'}`}
-            >
-              {item.icon}
-              <span className="ml-3 font-medium">{item.label}</span>
-              {activeView === item.view && (
-                <ChevronRight className="ml-auto" size={18} />
-              )}
-            </button>
-          ))}
-        </nav>
-      </div>
+    <div className="bg-gray-50 min-h-screen p-8">
+      
 
       {/* Main Content Area */}
-      <div className="flex-1 p-8 overflow-y-auto">
-        <div className="bg-white rounded-2xl shadow-lg p-6">
-          <div className="flex justify-between items-center mb-6">
-            <h2 className="text-3xl font-bold text-blue-900">User Management</h2>
+
+      <div className="flex justify-between mb-6">
+      <h2 className="text-4xl font-semibold text-gray-800">User Management</h2>
             
             <div className="flex space-x-4">
               {selectedUsers.length > 0 && (
@@ -312,8 +241,8 @@ const UserManagementInterface = () => {
 
 
         </div>       
-      </div>
-    </div>
+  
+   
   );
 };
 

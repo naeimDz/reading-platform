@@ -254,7 +254,7 @@ const InnovativeSupervisorDashboard = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
+    <div >
       {/* Top Navigation */}
       <header className="flex justify-between items-center mb-6">
         <div className="flex items-center space-x-4">

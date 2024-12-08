@@ -1,30 +1,35 @@
 "use client";
-
 import React, { useState } from "react";
-import Sidebar from "./Sidebar";
-import TopNavigation from "./TopNavigation";
-import { PlatformLayoutProps } from "./types";
+import { MenuItem, PlatformLayoutProps } from "./types";
+import Sidebar from "@/components/shared/Sidebar";
+import { 
+  BookOpenIcon, 
+  UsersIcon, 
+  ChartBarIcon, 
+  BellIcon, 
+  LayoutDashboardIcon, 
+} from "lucide-react";
 
-const PlatformLayout: React.FC<PlatformLayoutProps> = ({ children, pageTitle }) => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+const PlatformLayout: React.FC<PlatformLayoutProps> = ({ children }) => {
+  const supervisorMenuItems: MenuItem[] = [
+    { icon: <LayoutDashboardIcon className="w-5 h-5" />, label:"نظرة عامة",view:"Dashboard", href: "/supervisor-dashboard" },
+    { icon: <UsersIcon className="w-5 h-5" />, label:"رؤى المجموعات",view:"Group Management", href: "/group-management" },
+    { icon: <BookOpenIcon className="w-5 h-5" />, label: "إدارة الكتب",view:"Book Assignments", href: "/assign-books" },
+    { icon: <ChartBarIcon className="w-5 h-5" />, label: "إدارة المستخدمين",view:"Member Performance", href: "/performance" },
+    { icon: <BellIcon className="w-5 h-5" />, label: "الإشعارات", view:"Notifications",href: "/notifications" },
+  ];
+  const [activeView, setActiveView] = useState("overview");
 
-  const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
-  };
-
-  const user = {
-    name: "Nadia Benali",
-    role: "Supervisor",
-  };
 
   return (
-    <div className="flex h-screen bg-gray-50">
-      <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
-      <div className={`flex-1 transition-all duration-300 ${isSidebarOpen ? "ml-64" : "ml-20"}`}>
-        <TopNavigation pageTitle={pageTitle} user={user} />
-        <main className="pt-20 px-6 pb-6 overflow-y-auto" style={{ height: "calc(100vh - 4rem)" }}>
+    <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-white p-6">
+             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <Sidebar menuItems={supervisorMenuItems} activeView={activeView} setActiveView={setActiveView} />
+          
+            <div className="md:col-span-3 space-y-6">
+     
           {children}
-        </main>
+          </div>
       </div>
     </div>
   );

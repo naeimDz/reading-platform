@@ -5,14 +5,20 @@ import Link from "next/link";
 
 const Sidebar: React.FC<SidebarProps> = ({ activeView, setActiveView }) => {
   return (
-    <div className="bg-white rounded-2xl shadow-lg p-4" dir="rtl">
-      <div className="flex items-center mb-6 justify-end">
-        <div>
-          <h2 className="text-xl font-bold text-gray-800">لوحة إدارة المسؤول</h2>
-          <p className="text-sm text-gray-500">إدارة شاملة للمنصة</p>
-        </div>
-        <Shield className="text-blue-600 ml-3" size={30} />
-      </div>
+    <div className="bg-white rounded-2xl shadow-lg p-4">
+
+<div className="flex text-right mb-6 items-center gap-x-4" dir="rtl">
+  {/* Icon */}
+  <div className="bg-indigo-100 p-3 rounded-full mb-3 self-end">
+    <Shield className="text-blue-600" size={30} />
+  </div>
+  {/* Text */}
+  <div>
+    <h2 className="text-2xl font-extrabold text-gray-800 leading-tight">لوحة إدارة الأدمين</h2>
+    <p className="text-sm text-gray-500 mt-1">إدارة شاملة للمنصة</p>
+  </div>
+</div>
+
       <nav className="space-y-2">
         {[
           { icon: <BarChart2 />, label: "نظرة عامة", view: "overview", href: "/admin-dashboard" },
@@ -30,12 +36,15 @@ const Sidebar: React.FC<SidebarProps> = ({ activeView, setActiveView }) => {
               }`}
               onClick={() => setActiveView(item.view)}
             >
-              {item.label}
-              <span className="ml-3">{item.icon}</span>
+           
+            <span className="text-gray-600">{item.label}</span>
+             <span className="text-blue-600">{item.icon}</span>
             </button>
           </Link>
         ))}
       </nav>
+
+
     </div>
   );
 };

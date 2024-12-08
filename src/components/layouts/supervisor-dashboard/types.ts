@@ -1,10 +1,5 @@
 import { ReactNode } from "react";
 
-export interface MenuItem {
-  icon: ReactNode;
-  label: string;
-  path: string;
-}
 
 export interface User {
   name: string;
@@ -16,9 +11,12 @@ export interface SidebarProps {
   toggleSidebar: () => void;
 }
 
-export interface TopNavigationProps {
-  pageTitle: string;
-  user: User;
+
+export interface MenuItem {
+  icon: JSX.Element;
+  label: string;
+  view: string;
+  href: string;
 }
 
 export interface PlatformLayoutProps {

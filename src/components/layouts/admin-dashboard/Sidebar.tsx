@@ -5,34 +5,33 @@ import Link from "next/link";
 
 const Sidebar: React.FC<SidebarProps> = ({ activeView, setActiveView }) => {
   return (
-    <div className="bg-white rounded-2xl shadow-lg p-4">
-      <div className="flex items-center mb-6">
-      <Shield className="text-blue-600 mr-3" size={30} />
+    <div className="bg-white rounded-2xl shadow-lg p-4" dir="rtl">
+      <div className="flex items-center mb-6 justify-end">
         <div>
-          <h2 className="text-xl font-bold text-gray-800">Admin Dashboard</h2>
-          <p className="text-sm text-gray-500">Comprehensive Platform Management</p>
+          <h2 className="text-xl font-bold text-gray-800">لوحة إدارة المسؤول</h2>
+          <p className="text-sm text-gray-500">إدارة شاملة للمنصة</p>
         </div>
+        <Shield className="text-blue-600 ml-3" size={30} />
       </div>
       <nav className="space-y-2">
         {[
-          { icon: <BarChart2 />, label: 'Overview', view: 'overview', href: '/admin-dashboard' },
-          { icon: <Users />, label: 'Supervisors Management', view: 'supervisors', href: '/manage-supervisors' },
-          { icon: <User />, label: 'User Management', view: 'users', href: '/manage-users' },
-          { icon: <Book />, label: 'Book Management', view: 'books', href: '/manage-books' },
-          { icon: <Globe />, label: 'Group Insights', view: 'groups', href: '/add-group' },
-          { icon: <Award />, label: 'Performance', view: 'performance', href: 'analytics' },
-          { icon: <Settings />, label: 'Platform Settings', view: 'settings', href: '/setting-platform' }
+          { icon: <BarChart2 />, label: "نظرة عامة", view: "overview", href: "/admin-dashboard" },
+          { icon: <Users />, label: "إدارة المشرفين", view: "supervisors", href: "/manage-supervisors" },
+          { icon: <User />, label: "إدارة المستخدمين", view: "users", href: "/manage-users" },
+          { icon: <Book />, label: "إدارة الكتب", view: "books", href: "/manage-books" },
+          { icon: <Globe />, label: "رؤى المجموعات", view: "groups", href: "/add-group" },
+          { icon: <Award />, label: "الأداء", view: "performance", href: "analytics" },
+          { icon: <Settings />, label: "إعدادات المنصة", view: "settings", href: "/setting-platform" },
         ].map((item) => (
           <Link key={item.view} href={item.href} passHref>
             <button
-              key={item.view}
-              className={`w-full text-left p-3 rounded-lg flex items-center transition-all ${
+              className={`w-full text-right p-3 rounded-lg flex items-center justify-between transition-all ${
                 activeView === item.view ? "bg-indigo-100 text-indigo-700" : "hover:bg-gray-100 text-gray-600"
               }`}
               onClick={() => setActiveView(item.view)}
             >
-              <span className="mr-3">{item.icon}</span>
               {item.label}
+              <span className="ml-3">{item.icon}</span>
             </button>
           </Link>
         ))}

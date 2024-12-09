@@ -8,12 +8,12 @@ import {
 
 const UserProfile = () => {
   const [user, setUser] = useState({
-    name: "Ahmed Benali",
-    email: "ahmed.benali@example.com",
+    name: "Naeim",
+    email: "naeim@admin.com",
     location: "Algiers, Algeria",
     bio: "Passionate reader exploring literary worlds, one book at a time.",
     avatarUrl: "/api/placeholder/150/150",
-    joinDate: "March 15, 2023",
+    joinDate: "March 17, 2023",
     readingGoal: {
       yearly: 30,
       current: 15

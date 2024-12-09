@@ -1,4 +1,5 @@
 import { Calendar } from 'lucide-react';
+import ReadingTrackerModal from './readingTracker';
 
 interface HeaderProps {
   userName: string;
@@ -16,7 +17,7 @@ const Header = ({ userName }: HeaderProps) => {
           <Calendar size={20} />
           <span>تسجيل قراءة اليوم</span>
         </div>
-        <button className="w-10 h-10 rounded-full bg-gray-100"></button>
+        <ReadingTrackerModal />
       </div>
     </header>
   );

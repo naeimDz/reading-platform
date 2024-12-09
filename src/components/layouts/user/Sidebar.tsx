@@ -9,7 +9,7 @@ interface SidebarProps {
 const SidebarUser = ({ activeItem, onItemClick }: SidebarProps) => {
   const sidebarItems = [
     { id: 'home', icon: <Home size={24} />, label: 'Home' ,href:"/dashboard"},
-    { id: 'target', icon: <Target size={24} />, label: 'Target',href:'/dashboard/' },
+    { id: 'target', icon: <Target size={24} />, label: 'Target',href:'/dashboard/target' },
     { id: 'trophy', icon: <Trophy size={24} />, label: 'Trophy' ,href:'/dashboard/'},
     { id: 'bell', icon: <Bell size={24} />, label: 'Notifications' ,href:'/dashboard/'},
 

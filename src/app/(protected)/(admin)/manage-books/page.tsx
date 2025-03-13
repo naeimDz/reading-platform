@@ -102,7 +102,6 @@ const BookManagement = () => {
       <AddBookModal
         isOpen={isAddBookModalOpen}
         onClose={() => setIsAddBookModalOpen(false)}
-        onSave={()=>null}
       />
     </div>
             {selectedBooks.length > 0 && (

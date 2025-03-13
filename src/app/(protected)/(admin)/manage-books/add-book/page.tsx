@@ -16,10 +16,10 @@ interface BookDetails {
 interface AddBookModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onSave: (book: BookDetails) => void;
+
 }
 
-const AddBookModal: React.FC<AddBookModalProps> = ({ isOpen, onClose, onSave }) => {
+const AddBookModal: React.FC<AddBookModalProps> = ({ isOpen, onClose}) => {
   // State for book details
   const [bookDetails, setBookDetails] = useState<BookDetails>({
     title: "",
@@ -47,7 +47,6 @@ const AddBookModal: React.FC<AddBookModalProps> = ({ isOpen, onClose, onSave }) 
   // Save book details
   const handleSave = () => {
     if (bookDetails.title && bookDetails.author) {
-      onSave(bookDetails);
       onClose();
     } else {
       alert("Please fill in the required fields (Title and Author).");

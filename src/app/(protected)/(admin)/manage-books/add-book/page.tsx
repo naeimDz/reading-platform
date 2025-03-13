@@ -1,3 +1,5 @@
+
+
 "use client";
 import React, { useState } from "react";
 import { UploadCloud, XCircle } from "lucide-react";
@@ -178,15 +180,23 @@ const AddBookModal: React.FC<AddBookModalProps> = ({ isOpen, onClose}) => {
   );
 };
 
-const Page = () => {
+const AddBookPage: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <AddBookModal
-      isOpen={isModalOpen}
-      onClose={() => setIsModalOpen(false)}
-    />
+    <div className="p-4">
+      <button
+        onClick={() => setIsModalOpen(true)}
+        className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition"
+      >
+        Add New Book
+      </button>
+      <AddBookModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
+    </div>
   );
 };
 
-export default Page;
+export default AddBookPage;

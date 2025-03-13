@@ -1,12 +1,8 @@
 "use client"
 import React, { useState } from 'react';
-import { Plus, Trash2, Edit2, Search, Filter, Download, Upload, BookOpen, Star, Shield, BarChart2, Settings, Group, Book, Users, LayoutDashboard } from 'lucide-react';
-import AddBookModal from './add-book/page';
-interface SidebarItem {
-    icon: JSX.Element;
-    label: string;
-    view: string;
-  }
+import { Plus, Trash2, Edit2, Star } from 'lucide-react';
+import Page from './add-book/page';
+
 const BookManagement = () => {
   const [books, setBooks] = useState([
     {
@@ -99,10 +95,7 @@ const BookManagement = () => {
       </button>
 
       {/* Add Book Modal */}
-      <AddBookModal
-        isOpen={isAddBookModalOpen}
-        onClose={() => setIsAddBookModalOpen(false)}
-      />
+      <Page        />
     </div>
             {selectedBooks.length > 0 && (
               <button 

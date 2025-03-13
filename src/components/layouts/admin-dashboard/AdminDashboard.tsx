@@ -1,6 +1,5 @@
 "use client"
 import React, { useState } from 'react';
-import Sidebar from './Sidebar';
 import { AdminDashboardProps } from './dashboardTypes';
 import PlatformStatsCard from './PlatformStatsCard';
 import QuickActions from './QuickActions';

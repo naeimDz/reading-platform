@@ -1,9 +1,7 @@
 "use client"
 
-import { MenuItem } from '@/components/layouts/supervisor-dashboard/types';
 import React, { useState } from 'react';
 import { ReactNode } from 'react';
-import { BarChart2, Users, Book, Globe, Award, Settings, User, Shield } from "lucide-react";
 import Sidebar from '@/components/shared/Sidebar';
 import { adminMenu } from '@/components/utils/menus';
 interface DashboardLayoutProps {

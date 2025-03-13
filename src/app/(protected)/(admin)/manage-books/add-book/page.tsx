@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { Plus, UploadCloud, XCircle, Link } from "lucide-react";
+import { UploadCloud, XCircle } from "lucide-react";
 
 // Define the types for the book details
 interface BookDetails {
@@ -178,4 +178,15 @@ const AddBookModal: React.FC<AddBookModalProps> = ({ isOpen, onClose}) => {
   );
 };
 
-export default AddBookModal;
+const Page = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  return (
+    <AddBookModal
+      isOpen={isModalOpen}
+      onClose={() => setIsModalOpen(false)}
+    />
+  );
+};
+
+export default Page;
